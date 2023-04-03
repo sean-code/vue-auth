@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
+    <LogIn />
     <div class="auth-wrapper">
       <div class="auth-inner">
         Hello
@@ -11,11 +12,13 @@
 
 <script>
 import NavBar from '../src/components/NavBar.vue'
+import LogIn from '../src/components/LogIn.vue'
 
 export default {
   name: 'App',
   components: {
-    NavBar
+    NavBar,
+    LogIn
   }
 }
 </script>
