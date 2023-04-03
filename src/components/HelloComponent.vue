@@ -15,7 +15,7 @@
 </script>
 
 
-<style>
+<style scoped>
 .auth-wrapper{
   display: flex;
   justify-content: center;
@@ -40,7 +40,8 @@
 }
 
 .welcome-container{
-  margin-top: 50%;
+  margin-top: 80px;
+  margin-bottom: 80px;
 
 }
 

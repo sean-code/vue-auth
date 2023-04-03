@@ -27,8 +27,8 @@ body {
 }
 
 .wrapper {
-	margin-top: 80px;
-  margin-bottom: 80px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 .form-signin {

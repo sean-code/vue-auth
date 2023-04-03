@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import LogIn from '../components/LogIn.vue'
 import HelloComponent from '../components/HelloComponent.vue'
+import SignUp from '../components/SignUp.vue'
+
 
 const routes = [
     {
@@ -8,16 +10,21 @@ const routes = [
         name: 'HelloComponent',
         component: HelloComponent
     },
-  {
-    path: '/login',
-    name: 'logIn',
-    component: LogIn
-  },
+    {
+        path: '/login',
+        name: 'logIn',
+        component: LogIn
+    },
+    {
+        path: '/signup',
+        name: 'SignUp',
+        component: SignUp
+    },
   // Redirect
-  {
-    path: '/all-jobs',
-    redirect: '/jobs'
-  }
+    {
+        path: '/log-in',
+        redirect: '/login'
+    }
 ]
 
 const router = createRouter({
