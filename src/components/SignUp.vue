@@ -1,26 +1,26 @@
 <template>
     <div class='wrapper'>
-        <form action="#" method="post">
+        <form @submit.prevent="handleSubmit" @click="prevent">
         <h2>Sign Up</h2>
             <p>
                 <label for="First Name" class="floatLabel">First Name</label>
-                <input id="First Name" name="First Name" type="text"  required>
+                <input id="First Name" name="First Name" type="text" class="form-control"  required>
             </p>
             <p>
                 <label for="Last Name" class="floatLabel">Last Name</label>
-                <input id="Last Name" name="Last Name" type="text"  required>
+                <input id="Last Name" name="Last Name" type="text" class="form-control" required>
             </p>
             <p>
                 <label for="Email" class="floatLabel">Email</label>
-                <input id="Email" name="Email" type="text"  required>
+                <input id="Email" name="Email" type="text"  class="form-control" required>
             </p>
             <p>
                 <label for="password" class="floatLabel">Password</label>
-                <input id="password" name="password" type="password"  required>
+                <input id="password" name="password" type="password" class="form-control" required>
             </p>
             <p>
                 <label for="confirm_password" class="floatLabel">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" type="password"  required>
+                <input id="confirm_password" name="confirm_password" type="password" class="form-control"  required>
             </p>
             <p>
                 <input type="submit" value="Create My Account" id="submit">
@@ -32,7 +32,16 @@
 
 <script>
     export default{
-        name: 'SignUp'
+        data(){
+            return{
+                name: 'SignUp',
+            }
+        },
+        methods:{
+            handleSubmit(){
+                console.log("Submitted")
+            }
+        }
     }
 
 </script>
@@ -41,10 +50,6 @@
 .wrapper{
     margin-top: 80px;
     margin-bottom: 80px;
-}
-
-button{
-    background:  rgba(148,186,101,0.7);
 }
 
 body {
@@ -115,14 +120,13 @@ form input[type="submit"] {
 
 form label {
   position: absolute;
-  left: 8px;
+  left: 4px;
   top: 12px;
   color: #999;
   font-size: 16px;
   display: inline-block;
-  padding: 4px 10px;
+  padding: 2px;
   font-weight: 400;
-  background-color: rgba(255,255,255,0);
   transition: color .3s, top .3s, background-color .8s;
 }
 
@@ -130,6 +134,10 @@ form label.floatLabel {
   top: -11px;
   background-color: rgba(255,255,255,0.8);
   font-size: 14px;
+}
+
+.form-control:focus {
+    z-index: 2;
 }
 
 
