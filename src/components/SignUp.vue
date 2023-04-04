@@ -1,59 +1,69 @@
 <template>
-    <div class='wrapper'>
-        <form @submit.prevent="handleSubmit" @click="prevent">
-        <h2>Sign Up</h2>
-            <p>
-                <label for="First Name" class="floatLabel">First Name</label>
-                <input id="First Name" name="firstName" type="text" class="form-control"  v-model="firstName" required>
-            </p>
-            <p>
-                <label for="Last Name" class="floatLabel">Last Name</label>
-                <input id="Last Name" name="lastName" type="text" class="form-control" v-model="lastName" required>
-            </p>
-            <p>
-                <label for="Email" class="floatLabel">Email</label>
-                <input id="Email" name="Email" type="text"  class="form-control" v-model="Email" required>
-            </p>
-            <p>
-                <label for="password" class="floatLabel">Password</label>
-                <input id="password" name="Password" type="password" class="form-control" v-model="Password" required>
-            </p>
-            <p>
-                <label for="confirm_password" class="floatLabel">Confirm Password</label>
-                <input id="confirm_password" name="confirmPassword" type="password" class="form-control" v-model="confirmPassword"  required>
-            </p>
-            <p>
-                <input type="submit" value="Create My Account" id="submit">
-            </p>
-        </form>
-    </div>
-    <!-- <div>
-        <p>{{ firstName }}</p>
-        <p>{{ lastName }}</p>
-    </div> -->
+  <div class="wrapper">
+    <form @submit.prevent="handleSubmit">
+      <h2>Sign Up</h2>
+      <p>
+        <label for="firstName" class="floatLabel">First Name</label>
+        <input id="firstName" name="firstName" type="text" class="form-control" v-model="firstName" required>
+      </p>
+      <p>
+        <label for="lastName" class="floatLabel">Last Name</label>
+        <input id="lastName" name="lastName" type="text" class="form-control" v-model="lastName" required>
+      </p>
+      <p>
+        <label for="Email" class="floatLabel">Email</label>
+        <input id="Email" name="Email" type="text" class="form-control" v-model="Email" required>
+      </p>
+      <p>
+        <label for="password" class="floatLabel">Password</label>
+        <input id="password" name="Password" type="password" class="form-control" v-model="Password" required>
+      </p>
+      <p>
+        <label for="confirm_password" class="floatLabel">Confirm Password</label>
+        <input id="confirm_password" name="confirmPassword" type="password" class="form-control" v-model="confirmPassword" required>
+      </p>
+      <p>
+        <input type="submit" value="Create My Account" id="submit">
+      </p>
+    </form>
+  </div>
 </template>
 
-
 <script>
-    export default{
-        data(){
-            return{
-                name: 'SignUp',
-                firstName: '',
-                lastName: '',
-                Email: '',
-                Password: '',
-                confirmPassword: ''
-            }
-        },
-        methods:{
-            handleSubmit(){
-                console.log("Submitted")
-            }
-        }
-    }
+import axios from 'axios';
 
+export default {
+  data() {
+    return {
+      name: 'SignUp',
+      firstName: '',
+      lastName: '',
+      Email: '',
+      Password: '',
+      confirmPassword: '',
+    };
+  },
+  methods: {
+    handleSubmit() {
+      const data = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        Email: this.Email,
+        Password: this.Password,
+        confirmPassword: this.confirmPassword,
+      };
+      axios.post('http://localhost:3000/', data)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+};
 </script>
+
 
 <style scoped>
 .wrapper{

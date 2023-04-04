@@ -1,9 +1,9 @@
 <template>
 <div class="wrapper">
-        <form class="form-signin">
+        <form class="form-signin" @submit.prevent="handleSubmit">
             <h2 class="form-signin-heading">Please login</h2>
-            <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-            <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+            <input type="text" class="form-control" name="Email" placeholder="Email Address" v-model="Email" required autofocus="" />
+            <input type="password" class="form-control" name="Password" placeholder="Password" v-model="Password" required=""/>      
             <label class="checkbox">
                 <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
             </label>
@@ -14,7 +14,18 @@
 
 <script>
     export default {
-        name: 'LogIn'
+        name: 'LogIn',
+        data(){
+            return{
+                Email: '',
+                Password: ''
+            }
+        },
+        methods: {
+            handleSubmit(){
+                console.log("Logged In")
+            }
+        }
     }
 
 </script>
