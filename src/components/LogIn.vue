@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import axios from 'axios';
     export default {
         name: 'LogIn',
         data(){
@@ -22,8 +23,17 @@
             }
         },
         methods: {
-            handleSubmit(){
-                console.log("Logged In")
+            async handleSubmit(){
+                // console.log("Logged In")
+                const response = await axios.post('http://localhost:3000/login', {
+                    Email: this.Email,
+                    Password: this.Password
+                })
+                .catch((err) => {
+                    console.log(err);
+                    throw err;
+                });
+                    console.log(response)
             }
         }
     }

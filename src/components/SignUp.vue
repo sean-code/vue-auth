@@ -44,26 +44,20 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      const data = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        Email: this.Email,
-        Password: this.Password,
-        confirmPassword: this.confirmPassword,
-      };
-      axios.post('http://localhost:3000/', data)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => {
-          console.log(err);
+   async handleSubmit() {
+        const response = await axios.post('http://localhost:3000/signup', {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            Email: this.Email,
+            Password: this.Password,
+            confirmPassword: this.confirmPassword,
         });
+            console.log(response)
+            this.$router.push('/login');
+        },
     },
-  },
 };
 </script>
-
 
 <style scoped>
 .wrapper{
