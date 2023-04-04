@@ -4,29 +4,33 @@
         <h2>Sign Up</h2>
             <p>
                 <label for="First Name" class="floatLabel">First Name</label>
-                <input id="First Name" name="First Name" type="text" class="form-control"  required>
+                <input id="First Name" name="firstName" type="text" class="form-control"  v-model="firstName" required>
             </p>
             <p>
                 <label for="Last Name" class="floatLabel">Last Name</label>
-                <input id="Last Name" name="Last Name" type="text" class="form-control" required>
+                <input id="Last Name" name="lastName" type="text" class="form-control" v-model="lastName" required>
             </p>
             <p>
                 <label for="Email" class="floatLabel">Email</label>
-                <input id="Email" name="Email" type="text"  class="form-control" required>
+                <input id="Email" name="Email" type="text"  class="form-control" v-model="Email" required>
             </p>
             <p>
                 <label for="password" class="floatLabel">Password</label>
-                <input id="password" name="password" type="password" class="form-control" required>
+                <input id="password" name="Password" type="password" class="form-control" v-model="Password" required>
             </p>
             <p>
                 <label for="confirm_password" class="floatLabel">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" type="password" class="form-control"  required>
+                <input id="confirm_password" name="confirmPassword" type="password" class="form-control" v-model="confirmPassword"  required>
             </p>
             <p>
                 <input type="submit" value="Create My Account" id="submit">
             </p>
         </form>
     </div>
+    <!-- <div>
+        <p>{{ firstName }}</p>
+        <p>{{ lastName }}</p>
+    </div> -->
 </template>
 
 
@@ -35,6 +39,11 @@
         data(){
             return{
                 name: 'SignUp',
+                firstName: '',
+                lastName: '',
+                Email: '',
+                Password: '',
+                confirmPassword: ''
             }
         },
         methods:{
